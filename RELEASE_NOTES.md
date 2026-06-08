@@ -1,24 +1,25 @@
-# v1.0.0-beta
+# v1.0.2-beta
 
-首次公开 Beta 发布。
+本次发布为 `1.0.2` beta 更新，面向 HarmonyOS API 23 / API 24 手机。
 
 ## 安装包
 
-- `harmony-kslmkf-karing-v1.0.0-beta.hap`
+- `karing-harmony-1.0.2.hap`
 - 包名：`harmony.kslmkf.karing`
-- VersionName：`1.0.0`
-- VersionCode：`1000000`
-- SHA256：`4769EB3C017F56F84EB5C5D4E165F458365D1060CAFE5BAF0D9A319630118EA7`
+- VersionName：`1.0.2`
+- VersionCode：`1000002`
+- ABI：`arm64-v8a`
+- 文件大小：`36,396,480` bytes
+- SHA256：`2FE93FC9604EAAA1F649E70114AA40C74F260134C0D48378EAA01D4A9374A835`
 
-## 本次支持
+## 本次更新
 
-- 基于 Karing/sing-box 核心编译的 HarmonyOS HAP。
-- 支持 HarmonyOS VPN Ability 启动 TUN。
-- 支持首次启动使用条款确认。
-- 支持多个代理配置同时保存和切换。
-- 支持订阅链接、sing-box JSON、Clash YAML/JSON、Base64 节点列表和常见分享链接导入，并统一转换为核心可识别的 sing-box 配置。
-- 未导入代理文件时使用 direct-only 配置，避免空配置启动核心失败。
-- 设置页展示应用、Native wrapper 和 Karing/sing-box 核心编译版本。
+- 新增启动检查更新能力：启动后检查 GitHub Release，发现高版本才弹窗，并显示 Release 更新内容。
+- 设置页新增软件更新卡片，支持手动检查、打开仓库和关闭启动自动检查。
+- 增强代理导入兼容性，补齐 `vless`、`ss`、`trojan`、Clash、v2rayN 等常见订阅/分享链接转换。
+- 修复代理页顶部刷新后节点列表不及时更新的问题。
+- 增加批量测速、延迟排序、海外测速 URL 和超时标识，降低测速时核心卡死风险。
+- 保持 `compatibleSdkVersion` 为 API 23，`targetSdkVersion` 为 API 24，面向 API 23/24 手机发布。
 
 ## 注意
 
