@@ -8,15 +8,18 @@
 
 ## 下载
 
-最新版本：`1.0.2-beta`
+最新版本：`1.0.3-beta`
 
-- [v1.0.2 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.2)
-- [下载 karing-harmony-1.0.2.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.2/karing-harmony-1.0.2.hap)
-- 文件大小：`36,396,480` bytes
-- SHA256：`2FE93FC9604EAAA1F649E70114AA40C74F260134C0D48378EAA01D4A9374A835`
+- [v1.0.3 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.3)
+- [下载 karing-harmony-1.0.3.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.3/karing-harmony-1.0.3.hap)
+- 文件大小：`36,448,361` bytes
+- SHA256：`561C422D7636AB87F921FC6261F6881596AB7AE50F9876EF1635074182078959`
 
 历史版本：
 
+- [v1.0.2 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.2)
+- [下载 karing-harmony-1.0.2.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.2/karing-harmony-1.0.2.hap)
+- SHA256：`2FE93FC9604EAAA1F649E70114AA40C74F260134C0D48378EAA01D4A9374A835`
 - [v1.0.1 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.1)
 - [下载 karing-harmony-1.0.1.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.1/karing-harmony-1.0.1.hap)
 - SHA256：`1cf7be83e0211ef490a661c9ecc633a74804bdfeba3611e9f670631ec93446a4`
@@ -31,7 +34,7 @@
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - 目标设备 API：API 23 / API 24 手机
 
-`1.0.2` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.0.3` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -54,6 +57,15 @@
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
 
+### 1.0.3-beta
+
+- 修复 VPN 启动失败后核心异常但系统 VPN 标识残留的问题，核心异常时会自动关闭 VPN，避免全局断网只能重启应用恢复。
+- 修复全局模式仍带默认规则分流的问题；全局模式只保留 DNS 劫持规则，普通流量统一走当前选中节点。
+- 普通 VPN 规则模式补齐 IPv6 TUN 地址、IPv6 默认路由和 IPv6 DNS 劫持，减少 IPv6 流量绕过。
+- DNS 共存模式支持自定义上游 DNS 代理端口，并改为“用于接入纯 DNS 代理类软件”的通用说明。
+- 规则集默认国内直连规则支持编辑、删除和调整，自动更新间隔支持自定义。
+- 关闭负载均衡后，运行时配置会清理负载均衡出站引用，避免节点选择后核心仍走旧策略。
+
 ### 1.0.2-beta
 
 - 新增启动检查更新能力：启动后检查 GitHub Release，发现高版本才弹窗，并显示 Release 更新内容。
@@ -70,7 +82,7 @@
 提交问题时建议包含：
 
 - 手机型号、HarmonyOS 版本和 API 版本。
-- HAP 版本，例如 `1.0.2-beta`。
+- HAP 版本，例如 `1.0.3-beta`。
 - 安装方式和是否为首次安装。
 - 订阅或配置类型，例如 Clash YAML、sing-box JSON、Base64 订阅、分享链接等。
 - 复现步骤、截图和必要日志。

@@ -1,24 +1,25 @@
-# v1.0.2-beta
+# v1.0.3-beta
 
-本次发布为 `1.0.2` beta 更新，面向 HarmonyOS API 23 / API 24 手机。
+本次发布为 `1.0.3` beta 更新，面向 HarmonyOS API 23 / API 24 手机。
 
 ## 安装包
 
-- `karing-harmony-1.0.2.hap`
+- `karing-harmony-1.0.3.hap`
 - 包名：`harmony.kslmkf.karing`
-- VersionName：`1.0.2`
-- VersionCode：`1000002`
+- VersionName：`1.0.3`
+- VersionCode：`1000003`
 - ABI：`arm64-v8a`
-- 文件大小：`36,396,480` bytes
-- SHA256：`2FE93FC9604EAAA1F649E70114AA40C74F260134C0D48378EAA01D4A9374A835`
+- 文件大小：`36,448,361` bytes
+- SHA256：`561C422D7636AB87F921FC6261F6881596AB7AE50F9876EF1635074182078959`
 
 ## 本次更新
 
-- 新增启动检查更新能力：启动后检查 GitHub Release，发现高版本才弹窗，并显示 Release 更新内容。
-- 设置页新增软件更新卡片，支持手动检查、打开仓库和关闭启动自动检查。
-- 增强代理导入兼容性，补齐 `vless`、`ss`、`trojan`、Clash、v2rayN 等常见订阅/分享链接转换。
-- 修复代理页顶部刷新后节点列表不及时更新的问题。
-- 增加批量测速、延迟排序、海外测速 URL 和超时标识，降低测速时核心卡死风险。
+- 修复 VPN 启动失败或核心异常后 VPN 残留导致所有应用无法联网的问题，对应 issue #1。
+- 修复全局模式仍使用默认国内直连规则分流的问题；全局模式只保留 DNS 劫持规则，普通连接统一走当前选中节点，对应 issue #2。
+- 普通 VPN 规则模式补齐 IPv6 TUN 地址、IPv6 默认路由和 IPv6 DNS 劫持。
+- DNS 共存模式支持自定义上游 DNS 代理端口，并改为纯 DNS 代理类软件的通用接入说明。
+- 规则集默认国内直连规则支持编辑、删除和调整，自动更新间隔支持自定义。
+- 关闭负载均衡后清理运行时负载均衡引用，避免节点切换后仍走旧策略。
 - 保持 `compatibleSdkVersion` 为 API 23，`targetSdkVersion` 为 API 24，面向 API 23/24 手机发布。
 
 ## 注意
