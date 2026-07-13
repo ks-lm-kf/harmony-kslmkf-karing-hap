@@ -8,15 +8,18 @@
 
 ## 下载
 
-最新版本：`1.0.3-beta`
+最新版本：`1.0.4-beta`
 
-- [v1.0.3 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.3)
-- [下载 karing-harmony-1.0.3.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.3/karing-harmony-1.0.3.hap)
-- 文件大小：`36,448,361` bytes
-- SHA256：`561C422D7636AB87F921FC6261F6881596AB7AE50F9876EF1635074182078959`
+- [v1.0.4 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.4)
+- [下载 karing-harmony-1.0.4.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.4/karing-harmony-1.0.4.hap)
+- 文件大小：`36,450,937` bytes
+- SHA256：`487B749BD177E13A368E1010ABAF9F6A15BE1A532FB4E31CE262DBFF7EDBF0ED`
 
 历史版本：
 
+- [v1.0.3 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.3)
+- [下载 karing-harmony-1.0.3.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.3/karing-harmony-1.0.3.hap)
+- SHA256：`561C422D7636AB87F921FC6261F6881596AB7AE50F9876EF1635074182078959`
 - [v1.0.2 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.2)
 - [下载 karing-harmony-1.0.2.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.2/karing-harmony-1.0.2.hap)
 - SHA256：`2FE93FC9604EAAA1F649E70114AA40C74F260134C0D48378EAA01D4A9374A835`
@@ -34,7 +37,7 @@
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - 目标设备 API：API 23 / API 24 手机
 
-`1.0.3` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.0.4` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -56,6 +59,14 @@
 ## 更新日志
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+### 1.0.4-beta
+
+- 修复 API 23 / Mate 60 Pro / Mate 70 Pro+ 首次打开可能闪退的问题：首页不再静态加载 native wrapper，主流程初始化改为分步容错。
+- 增加节点地址策略设置：自动、优先 IPv4、优先 IPv6、仅 IPv4、仅 IPv6，用于双栈/IPv6 节点连接选择。
+- 启动前会把所选节点地址策略写入 sing-box 出站 `domain_strategy`，运行中切换会自动重启核心生效。
+- 设置页组件信息改为显示 native wrapper 由 VPN Ability 延迟加载，避免 UI 层触发核心库加载。
+- 对应用商店上架问题进行说明：当前 beta 暂以 GitHub Release 侧载发布。
 
 ### 1.0.3-beta
 
@@ -82,7 +93,7 @@
 提交问题时建议包含：
 
 - 手机型号、HarmonyOS 版本和 API 版本。
-- HAP 版本，例如 `1.0.3-beta`。
+- HAP 版本，例如 `1.0.4-beta`。
 - 安装方式和是否为首次安装。
 - 订阅或配置类型，例如 Clash YAML、sing-box JSON、Base64 订阅、分享链接等。
 - 复现步骤、截图和必要日志。

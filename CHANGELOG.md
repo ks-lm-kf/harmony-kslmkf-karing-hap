@@ -1,5 +1,13 @@
 # 更新日志
 
+## 1.0.4-beta
+
+- 修复 API 23 / Mate 60 Pro / Mate 70 Pro+ 首次打开可能闪退的问题：首页移除对 native wrapper 的静态依赖，条款页和主流程初始化增加容错。
+- 增加节点地址策略设置：自动、优先 IPv4、优先 IPv6、仅 IPv4、仅 IPv6。
+- 启动前按设置把 `domain_strategy` 写入所有真实代理出站，支持双栈节点选择 IPv6 连接。
+- 设置页组件信息改为说明 native wrapper 由 VPN Ability 延迟加载。
+- 对应用商店上架 issue 做说明：当前 beta 暂以 GitHub Release 侧载发布。
+
 ## 1.0.3-beta
 
 - 修复 VPN 启动失败或核心异常后 VPN 残留导致所有应用无法联网的问题。

@@ -1,25 +1,25 @@
-# v1.0.3-beta
+# v1.0.4-beta
 
-本次发布为 `1.0.3` beta 更新，面向 HarmonyOS API 23 / API 24 手机。
+本次发布为 `1.0.4` beta 更新，面向 HarmonyOS API 23 / API 24 手机。
 
 ## 安装包
 
-- `karing-harmony-1.0.3.hap`
+- `karing-harmony-1.0.4.hap`
 - 包名：`harmony.kslmkf.karing`
-- VersionName：`1.0.3`
-- VersionCode：`1000003`
+- VersionName：`1.0.4`
+- VersionCode：`1000004`
 - ABI：`arm64-v8a`
-- 文件大小：`36,448,361` bytes
-- SHA256：`561C422D7636AB87F921FC6261F6881596AB7AE50F9876EF1635074182078959`
+- 文件大小：`36,450,937` bytes
+- SHA256：`487B749BD177E13A368E1010ABAF9F6A15BE1A532FB4E31CE262DBFF7EDBF0ED`
 
 ## 本次更新
 
-- 修复 VPN 启动失败或核心异常后 VPN 残留导致所有应用无法联网的问题，对应 issue #1。
-- 修复全局模式仍使用默认国内直连规则分流的问题；全局模式只保留 DNS 劫持规则，普通连接统一走当前选中节点，对应 issue #2。
-- 普通 VPN 规则模式补齐 IPv6 TUN 地址、IPv6 默认路由和 IPv6 DNS 劫持。
-- DNS 共存模式支持自定义上游 DNS 代理端口，并改为纯 DNS 代理类软件的通用接入说明。
-- 规则集默认国内直连规则支持编辑、删除和调整，自动更新间隔支持自定义。
-- 关闭负载均衡后清理运行时负载均衡引用，避免节点切换后仍走旧策略。
+- 修复 API 23 / Mate 60 Pro / Mate 70 Pro+ 首次打开可能闪退的问题，对应 issue #4、#5、#6。
+- 首页不再静态加载 native wrapper，核心和 native wrapper 延迟到 VPN Ability 启动时加载。
+- 主流程初始化增加分步容错，避免版本信息、运行状态、自动更新检查等能力不可用时直接闪退。
+- 增加节点地址策略设置：自动、优先 IPv4、优先 IPv6、仅 IPv4、仅 IPv6，对应 issue #3。
+- 启动前会把所选节点地址策略写入 sing-box 出站 `domain_strategy`，用于双栈/IPv6 节点连接选择。
+- 对应用商店上架问题进行说明：当前 beta 暂以 GitHub Release 侧载发布，对应 issue #7。
 - 保持 `compatibleSdkVersion` 为 API 23，`targetSdkVersion` 为 API 24，面向 API 23/24 手机发布。
 
 ## 注意
