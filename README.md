@@ -8,15 +8,18 @@
 
 ## 下载
 
-最新版本：`1.0.4-beta`
+最新版本：`1.0.5-beta`
 
-- [v1.0.4 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.4)
-- [下载 karing-harmony-1.0.4.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.4/karing-harmony-1.0.4.hap)
-- 文件大小：`36,450,937` bytes
-- SHA256：`487B749BD177E13A368E1010ABAF9F6A15BE1A532FB4E31CE262DBFF7EDBF0ED`
+- [v1.0.5-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.5-beta)
+- [下载 karing-harmony-1.0.5-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.5-beta/karing-harmony-1.0.5-beta.hap)
+- 文件大小：`37,084,188` bytes
+- SHA256：`1BBF8DA187192A443FB1660534792905C4503BC3CEE7CB3D8320A4050FD1AABA`
 
 历史版本：
 
+- [v1.0.4 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.4)
+- [下载 karing-harmony-1.0.4.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.4/karing-harmony-1.0.4.hap)
+- SHA256：`487B749BD177E13A368E1010ABAF9F6A15BE1A532FB4E31CE262DBFF7EDBF0ED`
 - [v1.0.3 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.3)
 - [下载 karing-harmony-1.0.3.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.3/karing-harmony-1.0.3.hap)
 - SHA256：`561C422D7636AB87F921FC6261F6881596AB7AE50F9876EF1635074182078959`
@@ -37,7 +40,7 @@
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - 目标设备 API：API 23 / API 24 手机
 
-`1.0.4` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.0.5-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -55,10 +58,23 @@
 - 首次启动显示使用条款，强制阅读 5 秒后才能确认；同一安装环境只需首次确认。
 - 每次启动可检查公开仓库 Release 是否有新版本；发现新版本时显示更新内容并可跳转 Release 页面。
 - 设置页 / 组件页显示应用、Native wrapper 和 Karing / sing-box 核心相关版本信息。
+- 首页显示本机公网与代理出口的 IPv4、IPv6、国家和地区，并提供常用境外站点实时延迟与半小时速度折线图。
+- 支持跟随系统、浅色、深色、主题色、自定义颜色和背景图片设置。
+- 支持液态玻璃与沉浸光效，状态栏和手势导航区域采用沉浸式布局。
 
 ## 更新日志
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+### 1.0.5-beta
+
+- 修复深色/浅色模式下配置名称、卡片底色和系统栏显示异常，对应 issue #8。
+- 修复运行时 API 长期显示离线并阻止核心启动的问题，增加 native wrapper 延迟加载和启动容错，对应 issue #9。
+- 新增完整主题设置：跟随系统、浅色、深色、主题色、自定义颜色、背景图片及透明度/模糊/适配方式。
+- 新增液态玻璃与沉浸光效，主要卡片支持半透明材质、背景模糊、高光和柔和阴影。
+- 应用内容延伸到状态栏和手势导航区域，修复顶部与底部黑色区域，并按主题同步系统图标明暗。
+- 首页网络位置、IPv4/IPv6、站点延迟、实时速度和流量统计改为读取实际运行数据。
+- 保持 `compatibleSdkVersion` 为 API 23、`targetSdkVersion` 为 API 24，发布手机 arm64 HAP。
 
 ### 1.0.4-beta
 
@@ -93,7 +109,7 @@
 提交问题时建议包含：
 
 - 手机型号、HarmonyOS 版本和 API 版本。
-- HAP 版本，例如 `1.0.4-beta`。
+- HAP 版本，例如 `1.0.5-beta`。
 - 安装方式和是否为首次安装。
 - 订阅或配置类型，例如 Clash YAML、sing-box JSON、Base64 订阅、分享链接等。
 - 复现步骤、截图和必要日志。

@@ -1,26 +1,28 @@
-# v1.0.4-beta
+# v1.0.5-beta
 
-本次发布为 `1.0.4` beta 更新，面向 HarmonyOS API 23 / API 24 手机。
+本次发布为 `1.0.5-beta` 更新，面向 HarmonyOS API 23 / API 24 手机。
 
 ## 安装包
 
-- `karing-harmony-1.0.4.hap`
+- `karing-harmony-1.0.5-beta.hap`
 - 包名：`harmony.kslmkf.karing`
-- VersionName：`1.0.4`
-- VersionCode：`1000004`
+- VersionName：`1.0.5-beta`
+- VersionCode：`1000005`
 - ABI：`arm64-v8a`
-- 文件大小：`36,450,937` bytes
-- SHA256：`487B749BD177E13A368E1010ABAF9F6A15BE1A532FB4E31CE262DBFF7EDBF0ED`
+- `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
+- `targetSdkVersion`：HarmonyOS `6.1.1(24)`
+- 文件大小：`37,084,188` bytes
+- SHA256：`1BBF8DA187192A443FB1660534792905C4503BC3CEE7CB3D8320A4050FD1AABA`
 
 ## 本次更新
 
-- 修复 API 23 / Mate 60 Pro / Mate 70 Pro+ 首次打开可能闪退的问题，对应 issue #4、#5、#6。
-- 首页不再静态加载 native wrapper，核心和 native wrapper 延迟到 VPN Ability 启动时加载。
-- 主流程初始化增加分步容错，避免版本信息、运行状态、自动更新检查等能力不可用时直接闪退。
-- 增加节点地址策略设置：自动、优先 IPv4、优先 IPv6、仅 IPv4、仅 IPv6，对应 issue #3。
-- 启动前会把所选节点地址策略写入 sing-box 出站 `domain_strategy`，用于双栈/IPv6 节点连接选择。
-- 对应用商店上架问题进行说明：当前 beta 暂以 GitHub Release 侧载发布，对应 issue #7。
-- 保持 `compatibleSdkVersion` 为 API 23，`targetSdkVersion` 为 API 24，面向 API 23/24 手机发布。
+- 修复深色/浅色模式下配置名称、卡片底色和系统栏显示异常，对应 issue #8。
+- 修复运行时 API 长期显示离线并阻止核心启动的问题，增加 native wrapper 延迟加载和启动容错，对应 issue #9。
+- 新增完整主题设置及液态玻璃与沉浸光效。
+- 应用内容延伸到状态栏和手势导航区域，修复顶部与底部黑色区域。
+- 首页增加本机公网与代理出口 IPv4/IPv6、国家地区、境外站点延迟和半小时实时速度折线图。
+- 网络位置、延迟、实时速度、上传下载、连接数和内存数据改为读取实际运行状态。
+- 保持 API 23 兼容、API 24 目标版本，发布手机可安装的 arm64-v8a HAP。
 
 ## 注意
 
