@@ -8,15 +8,18 @@
 
 ## 下载
 
-最新版本：`1.0.5-beta`
+最新版本：`1.0.6-beta`
 
-- [v1.0.5-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.5-beta)
-- [下载 karing-harmony-1.0.5-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.5-beta/karing-harmony-1.0.5-beta.hap)
-- 文件大小：`37,084,188` bytes
-- SHA256：`1BBF8DA187192A443FB1660534792905C4503BC3CEE7CB3D8320A4050FD1AABA`
+- [v1.0.6-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.6-beta)
+- [下载 karing-harmony-1.0.6-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.6-beta/karing-harmony-1.0.6-beta.hap)
+- 文件大小：`37,645,644` bytes
+- SHA256：`932FEF3096BB0A7EE01516EAE09A33B2C21BEE2E938F4B3443AA13D22FB0D4CC`
 
 历史版本：
 
+- [v1.0.5-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.5-beta)
+- [下载 karing-harmony-1.0.5-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.5-beta/karing-harmony-1.0.5-beta.hap)
+- SHA256：`1BBF8DA187192A443FB1660534792905C4503BC3CEE7CB3D8320A4050FD1AABA`
 - [v1.0.4 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.4)
 - [下载 karing-harmony-1.0.4.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.4/karing-harmony-1.0.4.hap)
 - SHA256：`487B749BD177E13A368E1010ABAF9F6A15BE1A532FB4E31CE262DBFF7EDBF0ED`
@@ -40,7 +43,7 @@
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - 目标设备 API：API 23 / API 24 手机
 
-`1.0.5-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.0.6-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -61,10 +64,20 @@
 - 首页显示本机公网与代理出口的 IPv4、IPv6、国家和地区，并提供常用境外站点实时延迟与半小时速度折线图。
 - 支持跟随系统、浅色、深色、主题色、自定义颜色和背景图片设置。
 - 支持液态玻璃与沉浸光效，状态栏和手势导航区域采用沉浸式布局。
+- 设置页支持诊断日志开关、20 MiB 自动覆盖、崩溃恢复记录、容量统计、导出和清除。
 
 ## 更新日志
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+### 1.0.6-beta
+
+- 修复订阅链接导入后核心无法启动、而直接导入单节点分享链接可以启动的问题。
+- 统一记录页面、Ability、VPN 扩展、后台订阅和 Native 核心包装层日志。
+- 捕获 ArkTS 未处理异常，并在进程异常终止后的下次启动补写异常退出记录。
+- 日志上限为 20 MiB，写满后自动覆盖最旧内容，双层容量条显示当前占用和累计覆盖容量。
+- 支持通过系统文件选择器导出 `.log` 文件，并可一键清除日志和覆盖统计。
+- 保持 `compatibleSdkVersion` 为 API 23、`targetSdkVersion` 为 API 24，发布手机 arm64 HAP。
 
 ### 1.0.5-beta
 
@@ -109,7 +122,7 @@
 提交问题时建议包含：
 
 - 手机型号、HarmonyOS 版本和 API 版本。
-- HAP 版本，例如 `1.0.5-beta`。
+- HAP 版本，例如 `1.0.6-beta`。
 - 安装方式和是否为首次安装。
 - 订阅或配置类型，例如 Clash YAML、sing-box JSON、Base64 订阅、分享链接等。
 - 复现步骤、截图和必要日志。

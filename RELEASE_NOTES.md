@@ -1,27 +1,26 @@
-# v1.0.5-beta
+# v1.0.6-beta
 
-本次发布为 `1.0.5-beta` 更新，面向 HarmonyOS API 23 / API 24 手机。
+本次发布为 `1.0.6-beta` 更新，面向 HarmonyOS API 23 / API 24 手机。
 
 ## 安装包
 
-- `karing-harmony-1.0.5-beta.hap`
+- `karing-harmony-1.0.6-beta.hap`
 - 包名：`harmony.kslmkf.karing`
-- VersionName：`1.0.5-beta`
-- VersionCode：`1000005`
+- VersionName：`1.0.6-beta`
+- VersionCode：`1000006`
 - ABI：`arm64-v8a`
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - `targetSdkVersion`：HarmonyOS `6.1.1(24)`
-- 文件大小：`37,084,188` bytes
-- SHA256：`1BBF8DA187192A443FB1660534792905C4503BC3CEE7CB3D8320A4050FD1AABA`
+- 文件大小：`37,645,644` bytes
+- SHA256：`932FEF3096BB0A7EE01516EAE09A33B2C21BEE2E938F4B3443AA13D22FB0D4CC`
 
 ## 本次更新
 
-- 修复深色/浅色模式下配置名称、卡片底色和系统栏显示异常，对应 issue #8。
-- 修复运行时 API 长期显示离线并阻止核心启动的问题，增加 native wrapper 延迟加载和启动容错，对应 issue #9。
-- 新增完整主题设置及液态玻璃与沉浸光效。
-- 应用内容延伸到状态栏和手势导航区域，修复顶部与底部黑色区域。
-- 首页增加本机公网与代理出口 IPv4/IPv6、国家地区、境外站点延迟和半小时实时速度折线图。
-- 网络位置、延迟、实时速度、上传下载、连接数和内存数据改为读取实际运行状态。
+- 修复订阅链接导入后核心无法启动、而直接导入单节点分享链接可以启动的问题。
+- 设置页新增诊断日志开关，统一记录页面、Ability、VPN 扩展、后台订阅和 Native 核心包装层日志。
+- 捕获 ArkTS 未处理异常，并在进程异常终止后的下次启动补写异常退出记录。
+- 日志上限为 20 MiB，写满后自动覆盖最旧内容，双层容量条显示当前占用和累计覆盖容量。
+- 支持通过系统文件选择器导出普通 `.log` 文件，并可一键清除日志与覆盖统计。
 - 保持 API 23 兼容、API 24 目标版本，发布手机可安装的 arm64-v8a HAP。
 
 ## 注意
