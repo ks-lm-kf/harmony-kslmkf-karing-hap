@@ -1,27 +1,28 @@
-# v1.0.6-beta
+# v1.0.7-beta
 
-本次发布为 `1.0.6-beta` 更新，面向 HarmonyOS API 23 / API 24 手机。
+本次发布为 `1.0.7-beta` 更新，面向 HarmonyOS API 23 及以上手机，并已在 API 26 真机完成验证。
 
 ## 安装包
 
-- `karing-harmony-1.0.6-beta.hap`
+- `karing-harmony-1.0.7-beta.hap`
 - 包名：`harmony.kslmkf.karing`
-- VersionName：`1.0.6-beta`
-- VersionCode：`1000006`
+- VersionName：`1.0.7-beta`
+- VersionCode：`1000007`
 - ABI：`arm64-v8a`
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - `targetSdkVersion`：HarmonyOS `6.1.1(24)`
-- 文件大小：`37,645,644` bytes
-- SHA256：`932FEF3096BB0A7EE01516EAE09A33B2C21BEE2E938F4B3443AA13D22FB0D4CC`
+- 文件大小：`37,844,426` bytes
+- SHA256：`A4237FA16A283612C482D530EDB90D29F8AC0AECEB615E8266258E48CF6F8252`
 
 ## 本次更新
 
-- 修复订阅链接导入后核心无法启动、而直接导入单节点分享链接可以启动的问题。
-- 设置页新增诊断日志开关，统一记录页面、Ability、VPN 扩展、后台订阅和 Native 核心包装层日志。
-- 捕获 ArkTS 未处理异常，并在进程异常终止后的下次启动补写异常退出记录。
-- 日志上限为 20 MiB，写满后自动覆盖最旧内容，双层容量条显示当前占用和累计覆盖容量。
-- 支持通过系统文件选择器导出普通 `.log` 文件，并可一键清除日志与覆盖统计。
-- 保持 API 23 兼容、API 24 目标版本，发布手机可安装的 arm64-v8a HAP。
+- 修复订阅配置启动时远程规则集下载阻塞核心、最终误报 VPN 授权超时的问题。
+- 核心启动失败会同步实际错误并清理残留 VPN，避免系统 VPN 标识残留后断网。
+- 远程规则集改为核心启动后异步更新，首次失败会在后台重试。
+- 修复全局/直连模式下规则集被移除、设置页“检查更新”返回 404 的问题。
+- 规则集更新支持分批并发、进度提示和逐项失败日志。
+- 修复诊断日志容量条颜色越出圆角边框的问题。
+- 保持 API 23 最低兼容、API 24 目标版本，并在 API 26 真机完成启动、规则集更新 `4/4` 和停止清理测试。
 
 ## 注意
 

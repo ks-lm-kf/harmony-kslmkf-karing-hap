@@ -8,15 +8,18 @@
 
 ## 下载
 
-最新版本：`1.0.6-beta`
+最新版本：`1.0.7-beta`
 
-- [v1.0.6-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.6-beta)
-- [下载 karing-harmony-1.0.6-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.6-beta/karing-harmony-1.0.6-beta.hap)
-- 文件大小：`37,645,644` bytes
-- SHA256：`932FEF3096BB0A7EE01516EAE09A33B2C21BEE2E938F4B3443AA13D22FB0D4CC`
+- [v1.0.7-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.7-beta)
+- [下载 karing-harmony-1.0.7-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.7-beta/karing-harmony-1.0.7-beta.hap)
+- 文件大小：`37,844,426` bytes
+- SHA256：`A4237FA16A283612C482D530EDB90D29F8AC0AECEB615E8266258E48CF6F8252`
 
 历史版本：
 
+- [v1.0.6-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.6-beta)
+- [下载 karing-harmony-1.0.6-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.6-beta/karing-harmony-1.0.6-beta.hap)
+- SHA256：`932FEF3096BB0A7EE01516EAE09A33B2C21BEE2E938F4B3443AA13D22FB0D4CC`
 - [v1.0.5-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.5-beta)
 - [下载 karing-harmony-1.0.5-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.5-beta/karing-harmony-1.0.5-beta.hap)
 - SHA256：`1BBF8DA187192A443FB1660534792905C4503BC3CEE7CB3D8320A4050FD1AABA`
@@ -41,9 +44,9 @@
 - ABI：`arm64-v8a`
 - `targetSdkVersion`：HarmonyOS `6.1.1(24)`
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
-- 目标设备 API：API 23 / API 24 手机
+- 目标设备 API：API 23 及以上手机，已在 API 26 真机验证
 
-`1.0.6-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.0.7-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -69,6 +72,16 @@
 ## 更新日志
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+### 1.0.7-beta
+
+- 修复订阅配置启动时远程规则集下载阻塞核心、最终误报 VPN 授权超时的问题。
+- 核心启动失败会把实际错误同步回主页面，并主动清理残留 VPN，避免系统 VPN 标识残留后断网。
+- 远程规则集改为核心启动后异步更新，首次失败会在后台重试。
+- 修复全局/直连模式移除规则集后“检查更新”返回 404 的问题，真机验证默认 4 个规则集更新 `4/4` 成功。
+- 规则集更新支持分批并发、进度提示和逐项失败日志。
+- 修复诊断日志容量条颜色越出圆角边框的问题。
+- 保持 API 23 最低兼容、API 24 目标版本，并在 API 26 真机完成启动、更新规则集和停止清理测试。
 
 ### 1.0.6-beta
 
@@ -122,7 +135,7 @@
 提交问题时建议包含：
 
 - 手机型号、HarmonyOS 版本和 API 版本。
-- HAP 版本，例如 `1.0.6-beta`。
+- HAP 版本，例如 `1.0.7-beta`。
 - 安装方式和是否为首次安装。
 - 订阅或配置类型，例如 Clash YAML、sing-box JSON、Base64 订阅、分享链接等。
 - 复现步骤、截图和必要日志。
