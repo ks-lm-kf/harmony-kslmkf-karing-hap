@@ -8,15 +8,18 @@
 
 ## 下载
 
-最新版本：`1.0.7-beta`
+最新版本：`1.0.8-beta`
 
-- [v1.0.7-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.7-beta)
-- [下载 karing-harmony-1.0.7-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.7-beta/karing-harmony-1.0.7-beta.hap)
-- 文件大小：`37,844,426` bytes
-- SHA256：`A4237FA16A283612C482D530EDB90D29F8AC0AECEB615E8266258E48CF6F8252`
+- [v1.0.8-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.8-beta)
+- [下载 karing-harmony-1.0.8-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.8-beta/karing-harmony-1.0.8-beta.hap)
+- 文件大小：`36,695,090` bytes
+- SHA256：`CF9E254982F5204C6C29BD05A6D3332C791FDDC28F50A6291D5867005B57CDCA`
 
 历史版本：
 
+- [v1.0.7-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.7-beta)
+- [下载 karing-harmony-1.0.7-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.7-beta/karing-harmony-1.0.7-beta.hap)
+- SHA256：`A4237FA16A283612C482D530EDB90D29F8AC0AECEB615E8266258E48CF6F8252`
 - [v1.0.6-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.6-beta)
 - [下载 karing-harmony-1.0.6-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.6-beta/karing-harmony-1.0.6-beta.hap)
 - SHA256：`932FEF3096BB0A7EE01516EAE09A33B2C21BEE2E938F4B3443AA13D22FB0D4CC`
@@ -46,7 +49,7 @@
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - 目标设备 API：API 23 及以上手机，已在 API 26 真机验证
 
-`1.0.7-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.0.8-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -72,6 +75,15 @@
 ## 更新日志
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+### 1.0.8-beta
+
+- 修复 URL 订阅配置内自带 TUN 入站时核心启动失败的问题，导入阶段统一替换为 HarmonyOS VPN 所需的双栈 TUN。
+- 启动前再次清洗运行配置，移除重复 TUN 入站和订阅携带的无效接口地址，避免 `bind: cannot assign requested address`。
+- 订阅链接与单节点分享链接统一经过转换、校验和运行配置暂存，核心不再直接读取未经处理的订阅原文。
+- 核心启动或停止异常时仍会销毁 VPN，避免系统 VPN 标识和断网状态残留。
+- API 23/24 x86_64 模拟器已完成 URL 订阅、TUN 清洗和 VPN Ability 启动回归；API 26 arm64 真机完成最终 HAP 安装和启动验证。
+- 保持 API 23 最低兼容、API 24 目标版本和 arm64-v8a 手机 HAP。
 
 ### 1.0.7-beta
 
@@ -135,7 +147,7 @@
 提交问题时建议包含：
 
 - 手机型号、HarmonyOS 版本和 API 版本。
-- HAP 版本，例如 `1.0.7-beta`。
+- HAP 版本，例如 `1.0.8-beta`。
 - 安装方式和是否为首次安装。
 - 订阅或配置类型，例如 Clash YAML、sing-box JSON、Base64 订阅、分享链接等。
 - 复现步骤、截图和必要日志。
