@@ -8,15 +8,18 @@
 
 ## 下载
 
-最新版本：`1.0.8-beta`
+最新版本：`1.0.9-beta`
 
-- [v1.0.8-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.8-beta)
-- [下载 karing-harmony-1.0.8-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.8-beta/karing-harmony-1.0.8-beta.hap)
-- 文件大小：`36,695,090` bytes
-- SHA256：`CF9E254982F5204C6C29BD05A6D3332C791FDDC28F50A6291D5867005B57CDCA`
+- [v1.0.9-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.9-beta)
+- [下载 karing-harmony-1.0.9-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.9-beta/karing-harmony-1.0.9-beta.hap)
+- 文件大小：`36,705,035` bytes
+- SHA256：`3D1D3B1CE044CC784FD357C368D3FAC11D7F6E902764E9768268CEE100C95517`
 
 历史版本：
 
+- [v1.0.8-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.8-beta)
+- [下载 karing-harmony-1.0.8-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.8-beta/karing-harmony-1.0.8-beta.hap)
+- SHA256：`CF9E254982F5204C6C29BD05A6D3332C791FDDC28F50A6291D5867005B57CDCA`
 - [v1.0.7-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.7-beta)
 - [下载 karing-harmony-1.0.7-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.7-beta/karing-harmony-1.0.7-beta.hap)
 - SHA256：`A4237FA16A283612C482D530EDB90D29F8AC0AECEB615E8266258E48CF6F8252`
@@ -49,7 +52,7 @@
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - 目标设备 API：API 23 及以上手机，已在 API 26 真机验证
 
-`1.0.8-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.0.9-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -75,6 +78,16 @@
 ## 更新日志
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+### 1.0.9-beta
+
+- 修复核心已启动但 TUN 流量未进入代理、上传下载和连接数长期为零的问题，VPN 接口统一创建 IPv4/IPv6 全设备默认路由。
+- 移除与部分设备不兼容的动态 `vpnId`，保留 API 23 可用的 VPN 创建路径。
+- 启动前清理重复 FakeIP DNS 配置、修复 DNS 引用，并恢复 Clash API 到 `127.0.0.1:3057`。
+- 删除当前配置后立即同步代理页面；更新订阅后立即刷新更新时间、状态和节点列表，失败时恢复原配置。
+- 浅色与深色模式下状态栏使用独立纯色背景，不叠加模糊、渐变或液态玻璃滤镜。
+- API 23/24 x86_64 模拟器完成 VLESS、Trojan、SS 订阅下载、转换、配置传递与双栈 VPN 启动路径回归。
+- API 26 arm64 真机验证核心 API、真实流量统计、IPv4/IPv6 代理出口、站点延迟以及停止后 VPN 清理。
 
 ### 1.0.8-beta
 
@@ -147,7 +160,7 @@
 提交问题时建议包含：
 
 - 手机型号、HarmonyOS 版本和 API 版本。
-- HAP 版本，例如 `1.0.8-beta`。
+- HAP 版本，例如 `1.0.9-beta`。
 - 安装方式和是否为首次安装。
 - 订阅或配置类型，例如 Clash YAML、sing-box JSON、Base64 订阅、分享链接等。
 - 复现步骤、截图和必要日志。
