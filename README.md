@@ -8,12 +8,12 @@
 
 ## 下载
 
-最新版本：`1.0.9-beta`
+最新版本：`1.10.0`
 
-- [v1.0.9-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.9-beta)
-- [下载 karing-harmony-1.0.9-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.9-beta/karing-harmony-1.0.9-beta.hap)
-- 文件大小：`36,705,035` bytes
-- SHA256：`3D1D3B1CE044CC784FD357C368D3FAC11D7F6E902764E9768268CEE100C95517`
+- [v1.10.0 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.10.0)
+- [下载 karing-harmony-1.10.0.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.10.0/karing-harmony-1.10.0.hap)
+- 文件大小：`48,424,888` bytes
+- SHA256：`3851336BA2604E3AA3C634A08046EBAE37C2207A98E6A666EF1C29B802342A50`
 
 历史版本：
 
@@ -52,7 +52,7 @@
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - 目标设备 API：API 23 及以上手机，已在 API 26 真机验证
 
-`1.0.9-beta` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.10.0` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -78,6 +78,17 @@
 ## 更新日志
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+### 1.10.0
+
+- 修复编辑配置时保存按钮读取旧配置的问题，保存后同步运行配置、代理页面和节点列表。
+- 修复规则、节点和负载均衡配置保存后 VPN 扩展仍可能读取旧运行配置的问题。
+- 核心构建加入 `with_tailscale`，ARM64 与 x86_64 核心均包含真实 Tailscale endpoint 实现。
+- Tailscale endpoint 可通过配置校验，并在代理页显示为 `tailscale` 节点。
+- 改进 VLESS Reality 大小写识别、gRPC/WS 参数和 WebSocket early-data (`ed`) 转换。
+- 当前核心不支持 XHTTP/SplitHTTP，导入时明确提示原因。
+- 日志脱敏覆盖 Tailscale、WireGuard、私钥和预共享密钥字段。
+- 保持 API 23 最低兼容、API 24 目标版本和 arm64-v8a 手机 HAP。
 
 ### 1.0.9-beta
 
@@ -160,7 +171,7 @@
 提交问题时建议包含：
 
 - 手机型号、HarmonyOS 版本和 API 版本。
-- HAP 版本，例如 `1.0.9-beta`。
+- HAP 版本，例如 `1.10.0`。
 - 安装方式和是否为首次安装。
 - 订阅或配置类型，例如 Clash YAML、sing-box JSON、Base64 订阅、分享链接等。
 - 复现步骤、截图和必要日志。

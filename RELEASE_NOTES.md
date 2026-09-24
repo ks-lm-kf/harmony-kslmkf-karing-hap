@@ -1,28 +1,29 @@
-# v1.0.9-beta
+# v1.10.0
 
-本次发布为 `1.0.9-beta` 更新，面向 HarmonyOS API 23 及以上手机。订阅转换与双栈 VPN 启动路径已在 API 23/24 模拟器回归，最终 arm64 HAP 已在 API 26 真机完成代理联网验证。
+本次发布为 `1.10.0` 更新，面向 HarmonyOS API 23 及以上手机。
 
 ## 安装包
 
-- `karing-harmony-1.0.9-beta.hap`
+- `karing-harmony-1.10.0.hap`
 - 包名：`harmony.kslmkf.karing`
-- VersionName：`1.0.9-beta`
-- VersionCode：`1000009`
+- VersionName：`1.10.0`
+- VersionCode：`1010000`
 - ABI：`arm64-v8a`
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - `targetSdkVersion`：HarmonyOS `6.1.1(24)`
-- 文件大小：`36,705,035` bytes
-- SHA256：`3D1D3B1CE044CC784FD357C368D3FAC11D7F6E902764E9768268CEE100C95517`
+- 文件大小：`48,424,888` bytes
+- SHA256：`3851336BA2604E3AA3C634A08046EBAE37C2207A98E6A666EF1C29B802342A50`
 
 ## 本次更新
 
-- 修复核心已启动但流量未进入代理、上传下载和连接数长期为零的问题，VPN 接口统一创建 IPv4/IPv6 全设备默认路由。
-- 移除部分设备不兼容的动态 `vpnId`，保留 API 23 可用的 VPN 创建路径。
-- 启动前清理重复 FakeIP DNS、修复 DNS 引用，并恢复 Clash API 到 `127.0.0.1:3057`。
-- 删除当前配置后立即同步代理页面；订阅更新后立即刷新更新时间、状态和节点列表，失败时恢复原配置。
-- 状态栏改用独立纯色背景，不叠加模糊、渐变或液态玻璃滤镜。
-- API 23/24 x86_64 模拟器已完成 VLESS、Trojan、SS 订阅下载、转换、跨进程配置和双栈 VPN 启动路径回归。
-- API 26 arm64 真机已验证核心 API 在线、真实上传下载与连接统计、IPv4/IPv6 代理出口、境外站点延迟以及停止后 VPN 清理。
+- 修复配置编辑保存读取旧配置的问题，保存后同步运行配置、代理页面和节点列表。
+- 修复规则、节点和负载均衡配置保存后 VPN 扩展仍读取旧运行配置的问题。
+- 核心构建加入 `with_tailscale`，ARM64 与 x86_64 核心均包含真实 Tailscale endpoint 实现。
+- Tailscale endpoint 可通过配置校验，并在代理页显示为 `tailscale` 节点。
+- 改进 VLESS Reality 大小写识别、gRPC/WS 参数和 WebSocket early-data (`ed`) 转换。
+- 当前核心不支持 XHTTP/SplitHTTP，导入时明确提示原因。
+- 日志脱敏覆盖 Tailscale、WireGuard、私钥和预共享密钥字段。
+- API 23/24 模拟器完成订阅导入和启动路径检查；API 26 真机完成 `1.10.0` 安装启动验证。
 - 保持 API 23 最低兼容、API 24 目标版本和 arm64-v8a 手机 HAP。
 
 ## 注意

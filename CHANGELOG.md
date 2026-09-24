@@ -1,5 +1,16 @@
 # 更新日志
 
+## 1.10.0
+
+- 修复配置编辑保存读取旧配置的问题，保存后同步运行配置、代理页面和节点列表。
+- 修复规则、节点和负载均衡配置保存后 VPN 扩展仍可能读取旧运行配置的问题。
+- 核心构建加入 `with_tailscale`，ARM64 与 x86_64 核心均包含真实 Tailscale endpoint 实现。
+- Tailscale endpoint 通过配置校验并在代理页显示为 `tailscale` 节点。
+- 改进 VLESS Reality 大小写识别、gRPC/WS 参数和 WebSocket early-data (`ed`) 转换。
+- 当前核心不支持 XHTTP/SplitHTTP，导入时明确提示原因。
+- 日志脱敏覆盖 Tailscale、WireGuard、私钥和预共享密钥字段。
+- 保持 API 23 最低兼容、API 24 目标版本和 arm64-v8a 手机 HAP。
+
 ## 1.0.9-beta
 
 - 修复核心显示运行但 TUN 流量未进入代理、上传下载和活动连接长期为零的问题。
