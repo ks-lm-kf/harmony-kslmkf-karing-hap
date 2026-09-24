@@ -1,6 +1,6 @@
 # Karing Harmony HAP
 
-这是基于 Karing / sing-box 核心能力编译的 HarmonyOS HAP beta 发布仓库。当前仓库只用于发布已编译 HAP、版本说明和问题反馈；源码暂未放在本公开仓库，功能也还没有完全对齐上游 Karing。
+这是基于 Karing / sing-box 核心能力编译的 HarmonyOS HAP 发布仓库。当前仓库只用于发布已编译 HAP、版本说明和问题反馈；源码暂未放在本公开仓库，功能也还没有完全对齐上游 Karing。
 
 注意：当前 HAP 内含由 `KaringX/sing-box` 编译得到的 `libkaringbox.so`，其上游许可证为 GPL v3 or later，并带有不得暗示与原应用存在关联的附加要求。在未同步提供对应源码、构建脚本和许可证文件前，本二进制发布不应视为已完成 GPL 合规；请勿将本仓库描述为官方 Karing 或 sing-box 发布。
 
@@ -17,6 +17,9 @@
 
 历史版本：
 
+- [v1.0.9-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.9-beta)
+- [下载 karing-harmony-1.0.9-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.9-beta/karing-harmony-1.0.9-beta.hap)
+- SHA256：`3D1D3B1CE044CC784FD357C368D3FAC11D7F6E902764E9768268CEE100C95517`
 - [v1.0.8-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.8-beta)
 - [下载 karing-harmony-1.0.8-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.8-beta/karing-harmony-1.0.8-beta.hap)
 - SHA256：`CF9E254982F5204C6C29BD05A6D3332C791FDDC28F50A6291D5867005B57CDCA`
@@ -60,7 +63,7 @@
 - 支持 HarmonyOS VPN Ability 启动 TUN。
 - 支持多个代理配置或订阅同时存在，并可新增、更新、删除和切换。
 - 支持导入 URL 订阅、本地配置、sing-box JSON、Clash YAML/JSON、Base64 节点列表和常见分享链接。
-- 支持常见协议或格式转换：`vmess`、`vless`、`ss`、`trojan`、`hysteria`、`hysteria2/hy2`、`tuic`、`anytls`、`ssh`、`wireguard`、`socks`、`http` 等。
+- 支持常见协议或格式转换：`vmess`、`vless`、`ss`、`trojan`、`hysteria`、`hysteria2/hy2`、`tuic`、`anytls`、`ssh`、`wireguard`、`socks`、`http` 等，并支持 sing-box Tailscale endpoint。
 - 将不同订阅和节点格式统一转换为核心可识别的 sing-box 配置。
 - 支持本地 `mixed` 代理端口，默认端口 `10808`。
 - 支持 Clash-compatible 控制端口，默认端口 `3057`。
