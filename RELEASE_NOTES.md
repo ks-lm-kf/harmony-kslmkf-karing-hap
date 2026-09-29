@@ -1,30 +1,30 @@
-# v1.10.0
+# v1.11.0
 
-本次发布为 `1.10.0` 更新，面向 HarmonyOS API 23 及以上手机。
+本次发布为 `1.11.0` 大版本更新，面向 HarmonyOS API 23 及以上手机。
 
 ## 安装包
 
-- `karing-harmony-1.10.0.hap`
+- `karing-harmony-1.11.0.hap`
 - 包名：`harmony.kslmkf.karing`
-- VersionName：`1.10.0`
-- VersionCode：`1010000`
+- VersionName：`1.11.0`
+- VersionCode：`1011000`
 - ABI：`arm64-v8a`
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - `targetSdkVersion`：HarmonyOS `6.1.1(24)`
-- 文件大小：`48,424,888` bytes
-- SHA256：`3851336BA2604E3AA3C634A08046EBAE37C2207A98E6A666EF1C29B802342A50`
+- 文件大小：`48,441,498` bytes
+- SHA256：`8FCD80E44114421CA57808ADD801575CBE3FD9B964C230B36C979CFD07139EED`
 
 ## 本次更新
 
-- 修复配置编辑保存读取旧配置的问题，保存后同步运行配置、代理页面和节点列表。
-- 修复规则、节点和负载均衡配置保存后 VPN 扩展仍读取旧运行配置的问题。
-- 核心构建加入 `with_tailscale`，ARM64 与 x86_64 核心均包含真实 Tailscale endpoint 实现。
-- Tailscale endpoint 可通过配置校验，并在代理页显示为 `tailscale` 节点。
-- 改进 VLESS Reality 大小写识别、gRPC/WS 参数和 WebSocket early-data (`ed`) 转换。
-- 当前核心不支持 XHTTP/SplitHTTP，导入时明确提示原因。
-- 日志脱敏覆盖 Tailscale、WireGuard、私钥和预共享密钥字段。
-- API 23/24 模拟器完成订阅导入和启动路径检查；API 26 真机完成 `1.10.0` 安装启动验证。
-- 保持 API 23 最低兼容、API 24 目标版本和 arm64-v8a 手机 HAP。
+- 重做节点测速，拆分为快速 Ping 和真连接延迟；不再依赖 Clash `/delay`，测速不会切换当前节点或清理现有连接。
+- 批量测速使用有界并发，节点逐项显示“正在测试”；刷新、停止或重启可取消测速并忽略过期结果。
+- 修复测速过程中刷新导致节点列表消失、核心长时间无法重新启动的问题；短暂 API 故障和空快照不再清空当前节点。
+- 修复订阅节点域名解析进入本地 DNS 自引用的问题。VPN 创建前使用系统网络解析节点域名，并注入静态 DNS 映射。
+- 修复套接字绕过 VPN 失败仍被当作成功的问题，避免核心显示启动但手机没有真实代理流量。
+- 加强核心和 VPN 停止流程，停止未确认时不再显示为已关闭，异常退出会重试清理 VPN。
+- 过滤订阅中的流量重置、客户端升级和“无节点”提示等公告伪节点。
+- API 23 模拟器完成安装、首次条款、分享链接导入和 VPN 启动路径检查；API 26 真机完成安装验证。
+- ARM64 与 x86_64 核心均按 API 23 最低版本重新编译，发布包保持 arm64-v8a、目标 API 24、最低兼容 API 23。
 
 ## 注意
 

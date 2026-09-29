@@ -8,15 +8,18 @@
 
 ## 下载
 
-最新版本：`1.10.0`
+最新版本：`1.11.0`
 
-- [v1.10.0 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.10.0)
-- [下载 karing-harmony-1.10.0.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.10.0/karing-harmony-1.10.0.hap)
-- 文件大小：`48,424,888` bytes
-- SHA256：`3851336BA2604E3AA3C634A08046EBAE37C2207A98E6A666EF1C29B802342A50`
+- [v1.11.0 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.11.0)
+- [下载 karing-harmony-1.11.0.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.11.0/karing-harmony-1.11.0.hap)
+- 文件大小：`48,441,498` bytes
+- SHA256：`8FCD80E44114421CA57808ADD801575CBE3FD9B964C230B36C979CFD07139EED`
 
 历史版本：
 
+- [v1.10.0 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.10.0)
+- [下载 karing-harmony-1.10.0.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.10.0/karing-harmony-1.10.0.hap)
+- SHA256：`3851336BA2604E3AA3C634A08046EBAE37C2207A98E6A666EF1C29B802342A50`
 - [v1.0.9-beta Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.0.9-beta)
 - [下载 karing-harmony-1.0.9-beta.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.0.9-beta/karing-harmony-1.0.9-beta.hap)
 - SHA256：`3D1D3B1CE044CC784FD357C368D3FAC11D7F6E902764E9768268CEE100C95517`
@@ -55,7 +58,7 @@
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - 目标设备 API：API 23 及以上手机，已在 API 26 真机验证
 
-`1.10.0` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.11.0` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -81,6 +84,17 @@
 ## 更新日志
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+### 1.11.0
+
+- 重做节点测速，拆分为快速 Ping 和真连接延迟；不再依赖 Clash `/delay`，测试不会切换当前节点或清理现有连接。
+- 批量测速使用有界并发，逐项显示测试状态；刷新、停止和重启可取消当前批次并丢弃过期结果，避免测速卡住核心或清空代理页。
+- 修复订阅节点域名解析进入本地 DNS 自引用的问题。VPN 创建前通过系统网络解析节点域名，并向运行配置注入静态 DNS 映射。
+- 修复套接字绕过 VPN 失败仍被当作成功的问题，避免节点连接和 DNS 请求递归进入 TUN 后出现核心已启动但流量、连接数始终为零。
+- 加强核心和 VPN 停止流程；停止失败不再显示为已关闭，核心异常会重试清理 VPN，降低 VPN 标识残留和全局断网风险。
+- 代理刷新遇到短暂控制 API 故障或空快照时保留现有节点，并隔离配置切换、测速和刷新之间的并发状态。
+- 过滤订阅中的重置倒计时、客户端升级提示和“无节点”提示等公告伪节点，避免其参与节点连接和测速。
+- ARM64 与 x86_64 核心均按 HarmonyOS API 23 最低版本重新编译；保持 API 23 最低兼容、API 24 目标版本和 arm64-v8a 手机 HAP。
 
 ### 1.10.0
 
@@ -174,7 +188,7 @@
 提交问题时建议包含：
 
 - 手机型号、HarmonyOS 版本和 API 版本。
-- HAP 版本，例如 `1.10.0`。
+- HAP 版本，例如 `1.11.0`。
 - 安装方式和是否为首次安装。
 - 订阅或配置类型，例如 Clash YAML、sing-box JSON、Base64 订阅、分享链接等。
 - 复现步骤、截图和必要日志。
