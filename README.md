@@ -8,14 +8,18 @@
 
 ## 下载
 
-最新版本：`1.11.0`
+最新版本：`1.11.1`
+
+- [v1.11.1 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.11.1)
+- [下载 karing-harmony-1.11.1.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.11.1/karing-harmony-1.11.1.hap)
+- 文件大小：`48,475,386` bytes
+- SHA256：`D3AEC231E96C5EEF243FC57CD5BDBEDDE696BC1D2D3B11F6534D630C29521A85`
+
+历史版本：
 
 - [v1.11.0 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.11.0)
 - [下载 karing-harmony-1.11.0.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.11.0/karing-harmony-1.11.0.hap)
-- 文件大小：`48,441,498` bytes
 - SHA256：`8FCD80E44114421CA57808ADD801575CBE3FD9B964C230B36C979CFD07139EED`
-
-历史版本：
 
 - [v1.10.0 Release](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/tag/v1.10.0)
 - [下载 karing-harmony-1.10.0.hap](https://github.com/ks-lm-kf/harmony-kslmkf-karing-hap/releases/download/v1.10.0/karing-harmony-1.10.0.hap)
@@ -58,7 +62,7 @@
 - `compatibleSdkVersion`：HarmonyOS `6.1.0(23)`
 - 目标设备 API：API 23 及以上手机，已在 API 26 真机验证
 
-`1.11.0` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
+`1.11.1` 是面向手机的 arm64 HAP，不包含仅用于模拟器的 `x86_64` ABI。
 
 ## 特性
 
@@ -84,6 +88,16 @@
 ## 更新日志
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+### 1.11.1
+
+- 修复订阅含 `fp=unsafe`、`none`、`golang` 或大小写不一致 uTLS 指纹时核心初始化失败导致无法启动的问题（对应 issue #17）；Reality 节点自动回退 `chrome` 指纹，普通 TLS 节点自动清理无效 `utls` 配置。
+- 增强核心启动前配置校验，执行 `box.New` 级初始化检查，自动剔除损坏的单节点并保留其余有效代理节点。
+- 新增“自动过滤流量/公告节点”设置开关（默认开启，位于“设置 -> 概览”与“负载均衡”页），支持一键隐藏或保留信息类节点（对应 issue #18）。
+- 增强订阅伪节点识别，支持剥离前导 `[协议]`、`【公告】`、`(通知)` 及各类 Emoji 符号，覆盖 `[vless]剩余流量：...`、`📅 日期：...`、`官网地址`、`防失联`、`务必收藏` 等常见机场格式。
+- 还原订阅下载失败时的真实网络/HTTP 报错并提示可开启“订阅代理更新”；对已含 `target=` / `format=` 的转换链接保留原参数不再覆盖。
+- 代理页补充快速 Ping 与真连接测速说明，配置页补充支持的订阅格式说明。
+- ARM64 与 x86_64 核心均按 HarmonyOS API 23 最低版本重新编译；保持 API 23 最低兼容、API 24 目标版本和 arm64-v8a 手机 HAP，并在 API 26 真机完成验证。
 
 ### 1.11.0
 
